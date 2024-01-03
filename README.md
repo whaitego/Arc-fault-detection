@@ -45,4 +45,8 @@ pip install -r requirements.txt
 
 ## 致谢
 
+<<<<<<< HEAD
 特别感谢TianHuiyun提供的IAED数据集，它对我们的研究工作提供了宝贵的支持。
+=======
+特别感谢TianHuiyun提供的IAED数据集，它对我们的研究工作提供了宝贵的支持。
+>>>>>>> eaf9ab95698d259b4cc97ee26b430529960f3bcf

@@ -54,8 +54,12 @@ class CPD():
     
         # 创建文件夹，保存图表数据
         ctime = self.current_time()
-        if is_save:
-            os.makedirs(self.savedir,exist_ok=True)
+        try:
+            if is_save:
+                os.makedirs(self.savedir, exist_ok=True)
+        except OSError as e:
+            print(f"创建目录时出错: {e}")
+            return
     
         # for循环传入数据
         for i, new_point in enumerate(data_stream):
@@ -89,8 +93,11 @@ class CPD():
                 continue      
             
             # MAD
-            median = np.median(convinced_data)
-            mad = k * np.median(np.abs(convinced_data - median))
+            try:
+                median = np.median(convinced_data)
+                mad = k * np.median(np.abs(convinced_data - median))
+            except Exception as e:
+                print(f"数学运算时出错: {e}")
     
             if np.abs(new_point - median) > n_sigmas * mad:
                 is_outlier = True
@@ -182,8 +189,11 @@ class CPD():
             plt.xlabel('窗口期')
             plt.ylabel('feature')
             plt.legend()
-            if is_save:
-                plt.savefig(f"{self.savedir}/realtime_plot_{i+1}.png")
+            try:
+                if is_save:
+                    plt.savefig(f"{self.savedir}/realtime_plot_{i+1}.png")
+            except Exception as e:
+                print(f"保存图像时出错: {e}")
             if i == len(data_stream) - 1:
                 plt.show()
             else:
@@ -214,8 +224,11 @@ class CPD():
         # 将所有图片合成gif图
         output_name = "merge_to_gif.gif"  # gif图像命名
     
-        images = [Image.open(dirpath+'/'+file) for file in pic_files]
-        images[0].save(dirpath+'/'+output_name, save_all=True, append_images=images[1:], duration=duration, loop=loop)
+        try:
+            images = [Image.open(os.path.join(dirpath, file)) for file in pic_files]
+            images[0].save(os.path.join(dirpath, output_name), save_all=True, append_images=images[1:], duration=duration, loop=loop)
+        except Exception as e:
+            print(f"生成 GIF 时出错: {e}")
 
     def generate_state_sequence(self, change_points, length, initial_state = 0):
         """

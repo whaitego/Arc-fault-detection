@@ -1,15 +1,23 @@
 # 机器学习电弧检测项目
 ## 文件介绍
 **arc-fault detection.ipynb**:主程序，包含整个代码流程
+
 **changepoint.py**：用于变点检测方法
+
 **ML.py**:用于机器学习方法
+
 **Visualization.py**:用于可视化结果图，包含热图、雷达图等方法
+
 **functions.py**:包含一些小函数
+
 **merge_to_gif.gif**:运行该项目得到的gif图像，用于展示
+
 **requirements.txt**:包含了该项目依赖的对应版本的python包
+
 **README.md**:说明文档
 
 **注**：请确保上述的.ipynb和.py在同一文件目录下，不然运行会报错
+
 **注+**：要正确运行arc-fault detection.ipynb还需要GetData.py文件，该文件位于**IAED数据集**中,请参考下面对数据集的介绍，需将**GateData.py**单独放入和.ipynb、.py同一文件目录下方可正常运行
 
 ## 项目背景

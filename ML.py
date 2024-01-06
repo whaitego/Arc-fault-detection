@@ -31,7 +31,7 @@ class ModelTrainer:
     def train_and_evaluate(self, X_train, X_test, y_train, y_test):
         """
         输入训练数据和测试数据，返回多种分类器预测的评估结果
-        :return: {'FPR': ?, 'FNR': ?, 'Precision': ?, 'Recall': ?, 'Accuracy': ?, 'F_\beta*': ?}
+        :return: <dict> {'FPR': ?, 'FNR': ?, 'Precision': ?, 'Recall': ?, 'Accuracy': ?, 'F_\beta*': ?}
         """
         classifiers = {
             "SVM": SVC(),
@@ -76,7 +76,7 @@ class ModelTrainer:
         return results
         
  
-# # 使用你的数据调用函数
+# # 调用函数例子
 # results = train_and_evaluate(X_train, X_test, y_train, y_test)
 
 # # 可视化

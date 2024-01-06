@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+
 plt.rcParams['font.sans-serif'] = ['SimHei']
 plt.rcParams['axes.unicode_minus'] = False
 
@@ -11,7 +12,7 @@ class CPLOT():
     """
     绘制分类图表
     """
-    def __init__(self,dataframe, index_name, value_name):
+    def __init__(self,dataframe, index_name = 'index', value_name = 'value'):
         """
         :param dataframe: 数据框
         :param index_name: x-axis名称
